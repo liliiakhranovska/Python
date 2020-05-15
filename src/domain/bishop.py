@@ -2,15 +2,6 @@ import math
 
 WHOLE_BOARD = frozenset([(x, y) for x in range(8) for y in range(8)])
 
-board = [[None, None, None, None, None, None, None, None],
-    [None, None, None, None, None, None, None, None],
-    [None, (PAWN, BlACK_PLAYER), None, None, None, None, None, None],
-    [None, None, None, None, None, None, (PAWN, WHITE_PLAYER), None],
-    [None, None, None, None, None, None, None, None],
-    [None, None, None, None, (BISHOP, BlACK_PLAYER), None, None, None],
-    [None, None, None, None, None, None, None, None],
-    [None, None, (BISHOP, WHITE_PLAYER), None, None, None, None, None]]
-
 def __iter_diagonals(point):
   x, y = point
   while (x+1, y+1) in WHOLE_BOARD:
