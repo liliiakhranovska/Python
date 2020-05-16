@@ -1,12 +1,12 @@
-from players import *
-from chessset import *
+import players
+import chessset
 
 def default_board():
-    return [[(ROOK, WHITE_PLAYER), (KNIGHT, WHITE_PLAYER), (BISHOP, WHITE_PLAYER), (QUEEN, WHITE_PLAYER), (KING, WHITE_PLAYER), (BISHOP, WHITE_PLAYER), (KNIGHT, WHITE_PLAYER), (ROOK, WHITE_PLAYER)],
-    [(PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER), (PAWN, WHITE_PLAYER)],
+    return [[(chessset.ROOK, players.WHITE_PLAYER), (chessset.KNIGHT, players.WHITE_PLAYER), (chessset.BISHOP, players.WHITE_PLAYER), (chessset.QUEEN, players.WHITE_PLAYER), (chessset.KING, players.WHITE_PLAYER), (chessset.BISHOP, players.WHITE_PLAYER), (chessset.KNIGHT, players.WHITE_PLAYER), (chessset.ROOK, players.WHITE_PLAYER)],
+    [(chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER), (chessset.PAWN, players.WHITE_PLAYER)],
     [None, None, None, None, None, None, None, None],
     [None, None, None, None, None, None, None, None],
     [None, None, None, None, None, None, None, None],
     [None, None, None, None, None, None, None, None],
-    [(PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER), (PAWN, BlACK_PLAYER)],
-    [(ROOK, BlACK_PLAYER), (KNIGHT, BlACK_PLAYER), (BISHOP, BlACK_PLAYER), (QUEEN, BlACK_PLAYER), (KING, BlACK_PLAYER), (BISHOP, BlACK_PLAYER), (KNIGHT, BlACK_PLAYER), (ROOK, BlACK_PLAYER)]]
+    [(chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER)],
+    [(chessset.ROOK, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.QUEEN, players.BlACK_PLAYER), (chessset.KING, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.ROOK, players.BlACK_PLAYER)]]
