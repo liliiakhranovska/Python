@@ -1,7 +1,4 @@
-import math
-
 WHOLE_BOARD = frozenset([(x, y) for x in range(8) for y in range(8)])
-
 
 def __iter_possible_moves(point, board):
     x, y = point
