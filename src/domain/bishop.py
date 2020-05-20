@@ -1,22 +1,47 @@
-WHOLE_BOARD = frozenset([(x, y) for x in range(8) for y in range(8)])
+def try_to_move(current_point, target_point, board):
+    current_x, current_y = current_point
 
-def __iter_possible_moves(point, board):
-    x, y = point
-    _, initial_player = board[x][y]
-    directions = [(step_for_x, step_for_y) for step_for_x in (-1,1) for step_for_y in (-1,1)]
-    for direction in directions:
-        x, y = point
-        while (x+direction[0], y+direction[1]) in WHOLE_BOARD:
-            if board[x+direction[0]][y+direction[1]] == None:
-                yield x+direction[0], y+direction[1]
-            if board[x+direction[0]][y+direction[1]] != None:
-                _, player = board[x+direction[0]][y+direction[1]]
+    def north_east():
+        return [(x, y) for x in range(current_x + 1, 8) for y in range(current_y + 1, 8) if x-current_x == y-current_y]
+
+    def south_east():
+        return [(x, y) for x in range(current_x + 1, 8) for y in range(0, current_y) if x-current_x == current_y-y]
+
+    def south_west():
+        return [(x, y) for x in range(0, current_x) for y in range(0, current_y) if x-current_x == y-current_y]
+
+    def north_west():
+        return [(x, y) for x in range(0, current_x) for y in range(current_y + 1, 8)if x-current_x == current_y-y]
+
+    def iter_reachable_points():
+        _, initial_player = board[current_x][current_y]
+        for (x, y) in north_east():
+            if board[x][y] is not None:
+                _, player = board[x][y]
                 if player != initial_player:
-                    yield x+direction[0], y+direction[1]
+                    yield x, y
                 break
-            x += direction[0]
-            y += direction[1]
+            yield x, y
+            for (x, y) in south_east():
+            if board[x][y] is not None:
+                _, player = board[x][y]
+                if player != initial_player:
+                    yield x, y
+                break
+            yield x, y
+            for (x, y) in south_west():
+            if board[x][y] is not None:
+                _, player = board[x][y]
+                if player != initial_player:
+                    yield x, y
+                break
+            yield x, y
+            for (x, y) in north_west():
+            if board[x][y] is not None:
+                _, player = board[x][y]
+                if player != initial_player:
+                    yield x, y
+                break
+            yield x, y
 
-
-def try_to_move_bishop(point, move_point, board):
-    return move_point in __iter_possible_moves(point, board)
+    return target_point in set(iter_reachable_points())
