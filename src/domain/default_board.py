@@ -1,5 +1,5 @@
-import players
-import chessset
+from src.domain.players import players
+from src.domain.chessset import chessset
 
 EMPTY_BOARD = [[None] * 8] * 8
 

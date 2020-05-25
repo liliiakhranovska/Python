@@ -1,4 +1,4 @@
-def try_to_move(current_point, target_point, board):
+def try_to_move(current_point, target_point, board, initial_player):
   current_x, current_y = current_point
 
   def north():
