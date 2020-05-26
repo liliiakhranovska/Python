@@ -1,4 +1,4 @@
-def try_to_move(current_point, target_point, board, initial_player):
+def try_to_move(current_point, target_point, board):
   current_x, current_y = current_point
 
   def north():
@@ -13,19 +13,17 @@ def try_to_move(current_point, target_point, board, initial_player):
   def east():
     return [(x, current_y) for x in range(current_x + 1, 8)]
   
-  def iter_reachable_points():  
+  def iter_reachable_points():
+      _, initial_player = board[current_x][current_y]
       for direction in (north, south, west, east):
         for (x, y) in direction():
             if board[x][y] is not None:
-                _, player = board[x][y]
-                if player != initial_player:
-                  yield x, y
-                break
+              _, player = board[x][y]
+              if player != initial_player:
+                    yield x, y
+              break
             yield x, y
+  
   return target_point in set(iter_reachable_points())
-
-
-
-
 
 
