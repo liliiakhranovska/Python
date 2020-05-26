@@ -1,8 +1,6 @@
-from src.domain.players import players
-from src.domain.chessset import chessset
+import players
+import chessset
 
-def empty_board(): 
-  return [[None] * 8] * 8
 
 def default_board():
     return [[(chessset.ROOK, players.WHITE_PLAYER), (chessset.KNIGHT, players.WHITE_PLAYER), (chessset.BISHOP, players.WHITE_PLAYER), (chessset.QUEEN, players.WHITE_PLAYER), (chessset.KING, players.WHITE_PLAYER), (chessset.BISHOP, players.WHITE_PLAYER), (chessset.KNIGHT, players.WHITE_PLAYER), (chessset.ROOK, players.WHITE_PLAYER)],
@@ -15,3 +13,7 @@ def default_board():
             [(chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER),
              (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER)],
             [(chessset.ROOK, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.QUEEN, players.BlACK_PLAYER), (chessset.KING, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.ROOK, players.BlACK_PLAYER)]]
+
+
+
+
