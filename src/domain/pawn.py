@@ -1,6 +1,3 @@
-import players
-
-
 def try_to_move(current_point, target_point, board):
     current_x, current_y = current_point
     _, initial_player = board[current_x][current_y] 
