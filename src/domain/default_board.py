@@ -17,5 +17,5 @@ def default_board():
 
 
 
-print(default_board[0][0])
+
 
