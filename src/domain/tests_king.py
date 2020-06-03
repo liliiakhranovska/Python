@@ -5,10 +5,11 @@ import chessset
 import king
 import test_utils
 
+
 class TestKing(unittest.TestCase):
 
     def test_that_king_cant_move_either_point_if_sourrounded_by_the_same_color(self):
-        board = test_utils.empty_board 
+        board = test_utils.empty_board
         board[5][4] = (chessset.KING, players.BLACK_PLAYER)
         board[4][3] = (chessset.BISHOP, players.BLACK_PLAYER)
         board[4][4] = (chessset.QUEEN, players.BLACK_PLAYER)
@@ -18,7 +19,7 @@ class TestKing(unittest.TestCase):
         board[6][3] = (chessset.PAWN, players.BLACK_PLAYER)
         board[6][4] = (chessset.PAWN, players.BLACK_PLAYER)
         board[6][5] = (chessset.PAWN, players.BLACK_PLAYER)
-        self.assertFalse(king.try_to_move((5,4), (6, 3), board))
+        self.assertFalse(king.try_to_move((5, 4), (6, 3), board))
 
     def test_that_king_can_attack_opponent_piece(self):
         board = test_utils.empty_board
@@ -46,7 +47,7 @@ class TestKing(unittest.TestCase):
         board = test_utils.empty_board
         board[0][0] = (chessset.KING, players.BLACK_PLAYER)
         self.assertTrue(king.try_to_move((0, 0), (1, 0), board))
-    
+
     def test_that_king_can_move_right(self):
         board = test_utils.empty_board
         board[4][0] = (chessset.KING, players.BLACK_PLAYER)
@@ -86,6 +87,7 @@ class TestKing(unittest.TestCase):
         board = test_utils.empty_board
         board[4][3] = (chessset.KING, players.BLACK_PLAYER)
         self.assertTrue(king.try_to_move((4, 3), (3, 4), board))
+
 
 if __name__ == '__main__':
     unittest.main()
