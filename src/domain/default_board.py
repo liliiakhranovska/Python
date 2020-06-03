@@ -10,10 +10,12 @@ def default_board():
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
-            [(chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER),
-             (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER), (chessset.PAWN, players.BlACK_PLAYER)],
-            [(chessset.ROOK, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.QUEEN, players.BlACK_PLAYER), (chessset.KING, players.BlACK_PLAYER), (chessset.BISHOP, players.BlACK_PLAYER), (chessset.KNIGHT, players.BlACK_PLAYER), (chessset.ROOK, players.BlACK_PLAYER)]]
+            [(chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER),
+             (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER)],
+            [(chessset.ROOK, players.BLACK_PLAYER), (chessset.KNIGHT, players.BLACK_PLAYER), (chessset.BISHOP, players.BLACK_PLAYER), (chessset.QUEEN, players.BLACK_PLAYER), (chessset.KING, players.BLACK_PLAYER), (chessset.BISHOP, players.BLACK_PLAYER), (chessset.KNIGHT, players.BLACK_PLAYER), (chessset.ROOK, players.BLACK_PLAYER)]]
 
 
 
+
+print(default_board[0][0])
 
