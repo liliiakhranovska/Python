@@ -14,9 +14,9 @@ def try_to_move(current_point, target_point, board):
     def moves():
         if current_x + direction(initial_player) < 8 and current_x + direction(initial_player) > -1:
             yield current_x + direction(initial_player), current_y
-        if initial_player == players.WHITE_PLAYER and current_x == 1 and board[current_x + 1][current_y] == None:
+        if initial_player == players.WHITE_PLAYER and current_x == 1 and board[current_x + 1][current_y] is None:
             yield current_x + 2, current_y
-        elif initial_player == players.BLACK_PLAYER and current_x == 6 and board[current_x - 1][current_y] == None:
+        elif initial_player == players.BLACK_PLAYER and current_x == 6 and board[current_x - 1][current_y] is None:
             yield current_x - 2, current_y
 
     def takes():
