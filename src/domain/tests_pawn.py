@@ -22,9 +22,9 @@ class TestPawn(unittest.TestCase):
 
     def test_that_pawn_cant_move_either_point_if_the_next_piece_is_occupied_with_the_same_color(self):
         board = test_utils.empty_board
-        board[5][6] = (chessset.PAWN, players.WHITE_PLAYER)
-        board[6][6] = (chessset.BISHOP, players.WHITE_PLAYER)
-        self.assertFalse(pawn.try_to_move((5, 6), (6, 6), board))
+        board[1][6] = (chessset.PAWN, players.WHITE_PLAYER)
+        board[2][6] = (chessset.BISHOP, players.WHITE_PLAYER)
+        self.assertFalse(pawn.try_to_move((1, 6), (2, 6), board))
 
     def test_that_pawn_cant_move_either_point_if_the_next_piece_is_occupied_with_the_other_color(self):
         board = test_utils.empty_board
