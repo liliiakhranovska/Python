@@ -13,3 +13,4 @@ def default_board():
             [(chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER),
              (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER), (chessset.PAWN, players.BLACK_PLAYER)],
             [(chessset.ROOK, players.BLACK_PLAYER), (chessset.KNIGHT, players.BLACK_PLAYER), (chessset.BISHOP, players.BLACK_PLAYER), (chessset.QUEEN, players.BLACK_PLAYER), (chessset.KING, players.BLACK_PLAYER), (chessset.BISHOP, players.BLACK_PLAYER), (chessset.KNIGHT, players.BLACK_PLAYER), (chessset.ROOK, players.BLACK_PLAYER)]]
+
