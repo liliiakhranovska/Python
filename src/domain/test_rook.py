@@ -8,16 +8,6 @@ import unittest
 
 class TestRook(unittest.TestCase):
     
-    def test_rook_name_figure(self):
-        self.assertEqual(chessset.ROOK, 'ROOK')
-        self.assertNotEqual(chessset.ROOK, 'roook')
-
-    def test_if_rook_has_correct_initially_coordinates_at_the_beginning_of_the_game(self):
-        self.assertTrue(test_utils.default_board[0][0], ('ROOK', 'WHITE_PLAYER'))
-        self.assertTrue(test_utils.default_board[0][7], ('ROOK', 'WHITE_PLAYER'))
-        self.assertTrue(test_utils.default_board[7][0], ('ROOK', 'BLACK_PLAYER'))
-        self.assertTrue(test_utils.default_board[7][7], ('ROOK', 'BLACK_PLAYER'))     
-
 
     def test_that_rook_can_move_south(self):
         board = test_utils.empty_board
