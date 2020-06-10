@@ -13,7 +13,7 @@ class TestRook(unittest.TestCase):
         board = test_utils.empty_board
         board[3][4] = (chessset.ROOK, players.BLACK_PLAYER)
         board[3][6] = (chessset.QUEEN, players.WHITE_PLAYER)
-        self.assertTrue(rook.try_to_move((3, 4), (3, 0), board))
+        self.assertTrue(rook.try_to_move((3, 4), (3, 1), board))
     
 
     def test_that_rook_can_move_north(self):
@@ -33,8 +33,8 @@ class TestRook(unittest.TestCase):
     def test_that_rook_can_move_west(self):
         board = test_utils.empty_board
         board[3][4] = (chessset.ROOK, players.BLACK_PLAYER)
-        board[3][6] = (chessset.QUEEN, players.WHITE_PLAYER)
-        self.assertTrue(rook.try_to_move((3, 4), (0, 4), board))
+        board[1][4] = (chessset.QUEEN, players.WHITE_PLAYER)
+        self.assertTrue(rook.try_to_move((3, 4), (1, 4), board))
 
 
     def test_that_rook_cant_jump_over_piece(self):
