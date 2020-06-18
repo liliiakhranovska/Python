@@ -18,3 +18,4 @@ def try_to_move(current_point, target_point, board):
     return target_point in set(iter_reachable_points())
 
 
+
