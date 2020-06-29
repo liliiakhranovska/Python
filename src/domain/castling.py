@@ -16,16 +16,16 @@ def c_type(current_point, target_point, board):
             return 'north_east'
 
 
-def check(current_point, target_point, board, white_king_has_moved, black_king_has_moved, white_sw_rook_has_moved, white_nw_rook_has_moved, black_se_rook_has_moved, black_ne_rook_has_moved):
+def check(current_point, target_point, board, castling_pieces):
     if c_type(current_point, target_point, board) == 'south_west':
-        if white_king_has_moved is False and white_sw_rook_has_moved is False and board[0][1] is None and board[0][2] is None and board[0][3] is None:
+        if castling_pieces.state[0] is False and castling_pieces.state[3] is False and board[0][1] is None and board[0][2] is None and board[0][3] is None:
             return True
     if c_type(current_point, target_point, board) == 'north_west':
-        if white_king_has_moved is False and white_nw_rook_has_moved is False and board[0][5] is None and board[0][6] is None:
+        if castling_pieces.state[0] is False and castling_pieces.state[2] is False and board[0][5] is None and board[0][6] is None:
             return True
     if c_type(current_point, target_point, board) == 'south_east':
-        if black_king_has_moved is False and black_se_rook_has_moved is False and board[7][1] is None and board[7][2] is None and board[7][3] is None:
+        if castling_pieces.state[1] is False and castling_pieces.state[4] is False and board[7][1] is None and board[7][2] is None and board[7][3] is None:
             return True
     if c_type(current_point, target_point, board) == 'north_east':
-        if black_king_has_moved is False and black_ne_rook_has_moved is False and board[7][5] is None and board[7][6] is None:
+        if castling_pieces.state[1] is False and castling_pieces.state[5] is False and board[7][5] is None and board[7][6] is None:
             return True

@@ -4,6 +4,7 @@ import players
 import chessset
 import castling
 import test_utils
+import game
 
 
 class TestCastling(unittest.TestCase):
@@ -36,20 +37,23 @@ class TestCastling(unittest.TestCase):
         board = test_utils.empty_board
         board[0][4] = (chessset.KING, players.WHITE_PLAYER)
         board[0][7] = (chessset.ROOK, players.WHITE_PLAYER)
-        self.assertFalse(castling.check ((0,4), (0,1), board, True, False, False, False, False, False))
+        castling_pieces = game.State(white_king = True)
+        self.assertFalse(castling.check ((0,4), (0,1), board, castling_pieces))
 
     def test_that_castling_can_not_be_done_if_it_is_not_the_first_move_for_rook(self):
         board = test_utils.empty_board
         board[0][4] = (chessset.KING, players.WHITE_PLAYER)
         board[0][7] = (chessset.ROOK, players.WHITE_PLAYER)
-        self.assertFalse(castling.check ((0,4), (0,6), board, False, False, False, True, False, False))
+        castling_pieces = game.State(white_nw_rook = True)   
+        self.assertFalse(castling.check ((0,4), (0,6), board, castling_pieces))
 
     def test_that_castling_can_not_be_done_if_there_is_a_piece_between_king_and_rook(self):
         board = test_utils.empty_board
         board[7][4] = (chessset.KING, players.BLACK_PLAYER)
         board[7][2] = (chessset.BISHOP, players.BLACK_PLAYER)
         board[7][0] = (chessset.ROOK, players.BLACK_PLAYER)
-        self.assertFalse(castling.check ((7,4), (7,1), board, False, False, False, False, False, False))
+        castling_pieces = game.State()  
+        self.assertFalse(castling.check ((7,4), (7,1), board, castling_pieces))
 
 
 if __name__ == '__main__':
