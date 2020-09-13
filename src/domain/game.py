@@ -1,0 +1,80 @@
+import castling
+import players
+import chessset
+import bishop
+import queen
+import pawn
+import rook
+import king
+import state
+import knight
+
+
+class State():
+    def __init__(self, white_king=False, black_king=False, white_nw_rook=False, white_sw_rook=False, black_se_rook=False, black_ne_rook=False):
+        self.state = (white_king, black_king, white_nw_rook,
+                      white_sw_rook, black_se_rook, black_ne_rook)
+
+
+castling_pieces = State()
+
+
+def game(current_point, target_point, board):
+    current_x, current_y = current_point
+    target_x, target_y = target_point
+    initial_piece, initial_player = board[current_x][current_y]
+    if move_is_valid(current_point, target_point, board, castling_pieces) is True:
+        if initial_piece == chessset.KING and (king.try_to_move(current_point, target_point, board) is False):
+            __move_castling(current_point, target_point, board)
+        board[target_x][target_y] = board[current_x][current_y]
+        board[current_x][current_y] = None
+        state.white_king_has_moved = True
+    if initial_piece == chessset.KING and initial_player == players.WHITE_PLAYER:
+        state.white_king_has_moved = True
+    if initial_piece == chessset.KING and initial_player == players.BLACK_PLAYER:
+        state.black_king_has_moved = True
+    if initial_piece == chessset.ROOK and initial_player == players.WHITE_PLAYER and current_point == (0, 0):
+        state.white_sw_rook_has_moved = True
+    if initial_piece == chessset.ROOK and initial_player == players.WHITE_PLAYER and current_point == (0, 7):
+        state.white_nw_rook_has_moved = True
+    if initial_piece == chessset.ROOK and initial_player == players.BLACK_PLAYER and current_point == (7, 0):
+        state.white_se_rook_has_moved = True
+    if initial_piece == chessset.ROOK and initial_player == players.BLACK_PLAYER and current_point == (7, 7):
+        state.white_ne_rook_has_moved = True
+    return board
+
+
+def move_is_valid(current_point, target_point, board, castling_pieces):
+    current_x, current_y = current_point
+    target_x, target_y = target_point
+    initial_piece, initial_player = board[current_x][current_y]
+    if initial_piece == chessset.KING:
+        castling_type = castling.c_type(current_point, target_point, board)
+        if castling.check(current_point, target_point, board, castling_pieces) or king.try_to_move(current_point, target_point, board):
+            return True
+    if initial_piece == chessset.QUEEN and queen.try_to_move(current_point, target_point, board) is True:
+        return True
+    if initial_piece == chessset.BISHOP and bishop.try_to_move(current_point, target_point, board) is True:
+        return True
+    if initial_piece == chessset.KNIGHT and knight.try_to_move(current_point, target_point, board) is True:
+        return True
+    if initial_piece == chessset.ROOK and rook.try_to_move(current_point, target_point, board) is True:
+        return True
+    if initial_piece == chessset.PAWN and pawn.try_to_move(current_point, target_point, board) is True:
+        return True
+
+
+def __move_castling(current_point, target_point, board):
+    if castling.c_type(current_point, target_point, board) == 'south_west':
+        board[0][2] = board[0][0]
+        board[0][0] = None
+    if castling.c_type(current_point, target_point, board) == 'north_west':
+        board[0][5] = (chessset.ROOK, players.WHITE_PLAYER)
+        board[0][7] = None
+    if castling.c_type(current_point, target_point, board) == 'north_east':
+        board[7][5] = (chessset.ROOK, players.BLACK_PLAYER)
+        board[7][7] = None
+    if castling.c_type(current_point, target_point, board) == 'south_east':
+        board[7][2] = (chessset.ROOK, players.BLACK_PLAYER)
+        board[7][0] = None
+    return board
